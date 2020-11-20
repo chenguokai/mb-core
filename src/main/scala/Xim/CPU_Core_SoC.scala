@@ -8,8 +8,8 @@ import firrtl.stage.RunFirrtlTransformAnnotation
 class CPU_Core_SoC(val rv_width: Int = 64, inSOC: Boolean = false) extends Module {
     val io = IO(new Bundle {
         val meip = Input(UInt(1.W))
-        val mem = Flipped(new AXI_interface)
-        val mmio = Flipped(new AXI_lite_interface)
+        val mem = Flipped(new AXI_interface_32)
+        val mmio = Flipped(new AXI_lite_interface_32)
     })
     val inst_addr        = Wire(UInt(rv_width.W))
     val inst_req_valid   = Wire(UInt(1.W))

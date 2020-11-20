@@ -3,31 +3,6 @@ package Xim
 import chisel3._
 import chisel3.util.HasBlackBoxInline
 
-class AXI_lite_interface extends Bundle {
-    private val data_width = 64
-    private val addr_width = 64 // 1 Megabyte should be enough for us
-    private val wstrb_width = data_width / 8
-    private val id_width = 8
-    val awaddr = Input(UInt(addr_width.W))
-    val awprot = Input(UInt(3.W))
-    val awvalid = Input(UInt(1.W))
-    val awready = Output(UInt(1.W))
-    val wdata = Input(UInt(data_width.W))
-    val wstrb = Input(UInt(wstrb_width.W))
-    val wvalid = Input(UInt(1.W))
-    val wready = Output(UInt(1.W))
-    val bresp = Output(UInt(2.W))
-    val bvalid = Output(UInt(1.W))
-    val bready = Input(UInt(1.W))
-    val araddr = Input(UInt(addr_width.W))
-    val arprot = Input(UInt(3.W))
-    val arvalid = Input(UInt(1.W))
-    val arready = Output(UInt(1.W))
-    val rdata = Output(UInt(data_width.W))
-    val rresp = Output(UInt(2.W))
-    val rvalid = Output(UInt(1.W))
-    val rready = Input(UInt(1.W))
-}
 
 class AXI_fake_serial extends Module {
     private val data_width = 64
